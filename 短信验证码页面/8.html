@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击发送验证码</title>
+</head>
+<body>
+<button id='box'>发送验证码</button>	
+</body>
+</html>
+<script>
+
+var box = document.getElementById('box');
+box.onclick = function(){
+	box.disabled = true;
+	var num = 60;
+	var t = setInterval(function(){
+		if(num == 0){
+			clearInterval(t);
+			box.innerHTML = '发送验证码';
+			box.disabled = false;
+			return;	
+		}
+		box.innerHTML = '发送验证码('+num+')';
+		num --;
+	},1000);
+}
+
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		*{padding:0px;margin:0px;}
+		ul{list-style:none;overflow:hidden;}
+		ul li{float:left; margin-left:10px;padding:10px; background:pink;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li gid='1' style='background:yellowgreen'>手机</li>
+		<li gid='2'>配件</li>
+		<li gid='3'>耳机</li>
+		<li gid='4'>音响</li>
+	</ul>
+	<div id='chu1' style='height:200px;width:500px;background:orange;margin-top:10px;display:none'>
+	1违反而发达范德萨的大声道
+	</div>
+	<div id='chu2' style='height:200px;width:500px;background:orange;margin-top:10px;display:none'>
+	2违反而发达范德萨的大声道
+	</div>
+	<div id='chu3' style='height:200px;width:500px;background:orange;margin-top:10px;display:none'>
+	3违反而发达范德萨的大声道
+	</div>
+	<div id='chu4' style='height:200px;width:500px;background:orange;margin-top:10px;display:none'>
+	4违反而发达范德萨的大声道
+	</div>
+</body>
+</html>
+<script>
+var lis = document.getElementsByTagName('li');
+var divs = document.getElementsByTagName('div');
+for(var i=0;i<lis.length;i++){
+	lis[i].index = i;
+	lis[i].onmouseover = function(){
+		for(var j=0;j<divs.length;j++){
+			divs[j].style.display = 'none';
+		}
+		// console.log(divs[this.index]);
+		divs[this.index].style.display = 'block';
+	}
+}
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点名器</title>
+	<style>
+	#box{width:500px;height:300px;margin:0 auto;background:pink;line-height:300px;font-size:60px;text-align:center;}
+	#box2{width:500px;height:200px;margin:0 auto;font-size:60px;text-align:center;}
+	button{width:150px;height:50px;}
+	</style>
+</head>
+<body>
+	<div id='box'></div>
+	<div id='box2'>
+		<button>开始</button>
+		<button>停止</button>
+	</div>
+</body>
+</html>
+<script>
+var arr =['米饭','炒面','小笼包','麻辣烫'];
+var box = document.getElementById('box');
+var button = document.getElementsByTagName('button');
+var t = null;
+// var r = rand(0,arr.length-1);
+// box.innerHTML = arr[r];
+button[0].onclick = function(){
+		if(t!=null)return;
+	t = setInterval(function(){
+		var r = rand(0,arr.length-1);
+		box.innerHTML = arr[r];
+		},100)
+}
+
+button[1].onclick = function(){
+	clearInterval(t);
+	t = null;
+
+}
+
+function rand (m,n){
+	return Math.ceil(Math.random()*(n-m+1))+(m-1);
+}
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简历</title>
+</head>
+<body>
+	<form action="1.html">
+		用户名: <input type="text" name='user'><br>
+		email: <input type="text" name='email'><br>
+		手机: <input type="text" name='tele'><br>
+		工作经历: <button type='button' id='bugou'>不够</button>
+		<button type='button' id='duole'>多了</button>
+
+		<div id='box'>
+			<textarea></textarea>
+		</div>
+	</form>
+</body>
+</html>
+<script>
+var bugou = document.getElementById('bugou');
+var duole = document.getElementById('duole');
+var box = document.getElementById('box');
+bugou.onclick = function(){
+	var textarea = document.createElement('textarea');
+	box.appendChild(textarea);
+}
+duole.onclick = function(){
+	var last = box.lastElementChild;
+	box.removeChild(last);
+}
+</script>

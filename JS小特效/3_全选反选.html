@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Demo</title>
+    </head>
+    <body>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <input type="checkbox">！！！！！！！！！！！！！！！！<br/>
+        <button onclick="select(true)">全选</button>
+        <button onclick="select(false)">全不选</button>
+        <button onclick="fanxuan()">反选</button>
+    </body>
+    <script>
+        //找对象 
+        //id  document.getElementById('');
+        //标签名: document.getELementsByTagName() 结果是一个数组 
+
+        var inputs = document.getElementsByTagName('input');
+      //  console.dir(inputs);
+      function select(mask){
+          for(i=0;i<inputs.length;i++){
+              inputs[i].checked = mask;
+          }
+      }
+      function fanxuan(){
+
+          //alert(inputs[0].checked);
+            for(i=0;i<inputs.length;i++){
+             /*   if(inputs[i].checked){
+                    inputs[i].checked = false;        
+                }else{
+                    inputs[i].checked = true;
+                }*/
+                inputs[i].checked = !inputs[i].checked;
+            }    
+        }
+
+    </script>
+</html>

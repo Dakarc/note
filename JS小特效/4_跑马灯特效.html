@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Demo</title>
+    </head>
+    <body>
+        <font id="myfont"  size="6"></font>
+    </body>
+    <script>
+        var myfont = document.getElementById('myfont');
+
+        var msg = 'JavaScript';
+        
+     
+        function pick(num,str){
+            //java <font>S</font>cript
+            var tmp =str.substr(0,num);
+            // alert(tmp);
+            tmp += '<font color="red" size="7">'+str[num]+'</font>';
+            tmp += str.substr(num+1);
+            return tmp;
+           // alert(tmp);
+       }
+       
+       // myfont.innerHTML=pick(4,msg);
+        
+       var num =0;
+       setInterval(function(){
+           
+           myfont.innerHTML=pick(num,msg);
+           num++;
+           if(num ==msg.length) num = 0;
+        
+       },50);
+
+
+    </script>
+</html>

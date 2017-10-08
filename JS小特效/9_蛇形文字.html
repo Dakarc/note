@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.snake{position:absolute;top:-100px;}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	var msg = 'JavaScript蛇形文字！';
+
+	for( var i = 0;i<msg.length;i++){
+		document.write('<span id="snake'+i+'" class="snake">');
+		document.write(msg[i]);
+		document.write('</span>');
+
+	}
+//自定一个函数 进行字母分离
+	function snake(x,y,i){
+		var span = document.getElementById('snake'+i);
+		span.style.left = x + 20*i+ 20+'px';
+		span.style.top =y +'px';
+
+	}
+	//snake(100,100,1);
+	//获取鼠标坐标
+	window.onmousemove =function(e){
+
+			document.title="x:"+e.clientX + "y:"+e.clientY;
+			//for(var i = 0; i<msg.length;i++){
+			//	snake(e.clientX,e.clientY,i);
+
+			//}
+			var i = 0;
+			var timmer=setInterval(function(){
+				if(i >=msg.length-1) clearInterval(timmer);
+				snake(e.clientX,e.clientY,i);
+				i++;
+
+			},50);
+	}
+</script>
+</html>

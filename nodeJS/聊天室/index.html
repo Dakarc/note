@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <script src="/json.js"></script> --> <!-- for ie -->
+	<script src="/socket.io/socket.io.js"></script>
+	<style>
+		*{margin:0px; padding:0px;}
+		/*#begin{width:100%; margin:0 auto; background:#ddd;overflow:hidden;}*/
+		#begin{width:100%; position:absolute;left:0px;top:0px;background:#ddd;overflow:hidden;}
+
+		#form{width:400px; height:200px; border:1px solid black; border-radius:10px;margin:200px
+			 auto;overflow:hidden;}
+		#form div{margin:60px 0 0 50px;}
+		#form input{padding:10px; border:1px solid #abcdef;}
+		#form button{display:block;margin:40px auto;padding:5px 10px;}
+		#container{width:600px; margin:50px auto; height:800px; border:1px solid black; border-radius:10px; overflow:hidden; }
+		#top{height:50px;color:white; background:black;line-height:50px; padding-left:20px;}
+		#box{background:#F0EFF4; height:650px; overflow-y:auto;}
+		.come{height:30px; color:#777;line-height:30px; text-align:center;}
+		#foot{border-top:1px solid black;}
+		#foot input{width:420px; padding:0px 20px; height:50px;margin:25px 0px 0px 20px;border-radius:100px; border:1px solid #aaa;}
+		#foot button{width:80px; padding:10px; height:50px;margin:25px 0px 0px 20px;border-radius:100px; border:1px solid #aaa;}
+		.say{
+			float:left; width:600px;
+		}
+		.say div{margin-top:10px;float:left;}
+		.say .mess{padding:10px 20px; background:#FFF;border-radius:5px; border:1px solid #aaa;}
+		.say .who{padding:10px;}
+		.sayme{float:right;width:600px;}
+		.sayme .who{padding:10px;}
+		.sayme .mess{padding:10px; background:#9EEA6A;border-radius:5px; border:1px solid #aaa;}
+		.sayme div{margin-top:10px;float:right;}
+	</style>
+</head>
+<body>
+<div id='begin'>
+	<div id='form'>
+		<div>
+			请输入您的用户名: <input type="text" name='user' id='input' autofocus="autofocus" >
+		</div>
+		<button id='go'>提 交</button>
+	</div>
+</div>
+	<!--socket.io  npm -->
+	
+	<div id='container'>
+		<div id='top'>
+			小丫丫聊天室
+		</div>
+		
+		<div id='box'>
+		
+		</div>
+		<div id='foot'>
+			<input type="text" id='inp'>
+			<button id='sendd'>发送</button>
+		</div>
+	</div>
+
+</body>
+</html>
+<script>
+var socket = io.connect(null);  //连接上了socket
+
+var go = document.getElementById('go');
+var inp = document.getElementById('input');
+var inpp = document.getElementById('inp');
+var begin = document.getElementById('begin');
+var box = document.getElementById('box');
+var sendd = document.getElementById('sendd');
+var people = '';
+//用户进来以后输入用户名 
+go.onclick = function(){
+	var zhi = inp.value;  //谁进来了
+	people = zhi;
+	socket.emit('login',{name:zhi},function(data){
+		//alert(data);  服务器 通过 fn 返回的内容
+		begin.style.display = 'none';
+		var str = "<div class='come'>"+data+"进来了</div>";
+		box.innerHTML = str;
+	})
+}
+//等待 服务 出发 谁来了的广播
+socket.on('login1',function(data){
+	var div = document.createElement('div');
+	div.setAttribute('class','come');
+	//var str = "<div class='come'>"+data['name']+"进来了</div>";
+	div.innerHTML= data['name']+"进来了";
+	box.appendChild(div);
+})
+
+//发送内容
+sendd.onclick = function(){
+	var zhi = inpp.value;  // 用户要发送什么话
+	//people 一定被赋值了 
+	socket.emit('message',{message:zhi,'people':people},function(data){
+		if(data){
+			var div = document.createElement('div');
+			div.innerHTML = '<div class="who">'+data['people']+'</div><div class="mess">'+data['message']+'</div>';
+			div.setAttribute('class','sayme');
+			box.appendChild(div);
+			inpp.value='';		
+		}
+	})
+}
+
+
+socket.on('message',function(data){
+	if(data){
+			var div = document.createElement('div');
+			div.innerHTML = '<div class="who">'+data['people']+'</div><div class="mess">'+data['message']+'</div>';
+			div.setAttribute('class','say');
+			box.appendChild(div);
+			inpp.value='';		
+		}
+})
+</script>

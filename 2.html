@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery-1.8.3.min.js'></script>
+	<style>
+		*{padding:0px; margin:0px;}
+		ul{width:400px; margin:0 auto; list-style:none;}
+		ul li{width:400; height:226px; border:1px solid #ddd; margin-top:20px;}
+	</style>
+</head>
+<body>
+	<ul id='show'>
+		<li><img data-src="images/1.jpg" src='images/1.jpg' width='400' alt=""></li>
+		<li><img data-src="images/2.jpg" src='images/2.jpg' width='400' alt=""></li>
+		<li><img data-src="images/3.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li><img data-src="images/4.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li><img data-src="images/5.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li><img data-src="images/6.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li><img data-src="images/7.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li><img data-src="images/8.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li><img data-src="images/9.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li><img data-src="images/10.jpg" src='images/loading.gif' width='400' alt=""></li>
+		<li>
+			<img src='images/loading.gif' alt="">
+		</li>
+	</ul>
+</body>
+</html>
+<script>
+$(window).scroll(function(){
+	//如果滚动条滚出的文档距离+屏幕可视高度  >=  当前图片距离文档的高度   应该显示出来
+	//依次判断 每一张图片  循环  .each()
+	$('#show li[isloaded!=1]').each(function(){
+		//普通方法  加载过后的就不再加载 
+		//if($(this).attr('isloaded')==1) return;
+		
+		var dT = $(window).scrollTop();  //文档滚动距离
+		var wT = $(window).height();   //可是高度
+		var iT = $(this).offset().top;  //li 距离文档的高度
+		if((dT+wT)>=iT+100){
+			//显示当前的这张图片
+			var zhi = $(this).children().attr('data-src');
+			var t = $(this);
+			//为了区分 里面到底是显示图片 还是  显示  div内容
+			if(zhi == undefined){
+				//显示div
+				$.post('1.php',{},function(data){
+					//进入ajax  this  换了 
+					t.html(data);
+					t.attr('isloaded','1');
+				})
+				
+			}else{
+				$(this).children().attr('src',zhi);
+				$(this).attr('isloaded','1');
+			}
+
+		}
+
+	}); 
+	
+
+
+})
+
+</script>

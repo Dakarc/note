@@ -1,0 +1,2 @@
+开启pdo,在php.ini中
+extension_dir = "ext"	//去掉分号

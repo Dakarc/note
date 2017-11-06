@@ -1,0 +1,106 @@
+
+##########################################################################
+# 			       TL-H29RA  System Log 
+# Time = 2017-03-23 20:01:11 871s
+# H-Ver = TL-H29RA 6.0 00000000 : S-Ver = 1.0.6 Build 170323 Rel.71201n 
+# L = 192.168.0.1 : M = 255.255.255.0
+# WAN = PPPoE : W = 0.0.0.0 : M = 0.0.0.0 : G = 0.0.0.0
+# Cnt = 5504, Free = 5477, Busy = 27
+##########################################################################
+  0days, 00:00:00, LAN: Attach mirror0 to stack.
+  0days, 00:00:00, WAN: Attach interface eth1.
+  0days, 00:00:00, LAN: Set interface mirror0 ip=192.168.0.1 netmask 255.255.255.0.
+  0days, 00:00:00, HTTPD: Http server start!
+  0days, 00:00:04, WAN: Wan ethernet port plug on.
+  0days, 00:00:06, PPPOE: Standard authentication.
+  0days, 00:00:06, PPPOE: TX PADT[session=c07b].
+  0days, 00:00:06, PPPOE: try special dial type 0.
+  0days, 00:00:06, PPPOE: TX PADI.
+  0days, 00:00:07, WAN: Wan ethernet port plug off.
+  0days, 00:00:07, PPPOE: TX PADT[session=c07b].
+  0days, 00:00:10, WAN: Wan ethernet port plug on.
+  0days, 00:00:11, PPPOE: Standard authentication.
+  0days, 00:00:11, PPPOE: TX PADT[session=c07b].
+  0days, 00:00:11, PPPOE: try special dial type 0.
+  0days, 00:00:11, PPPOE: TX PADI.
+  0days, 00:00:16, PPPOE: TX PADI.
+  0days, 00:00:21, PPPOE: TX PADI.
+  0days, 00:00:23, DHCPS: Send OFFER with ip 192.168.0.100.
+  0days, 00:00:24, DHCPS: Send ACK to 192.168.0.100.
+  0days, 00:00:26, PPPOE: TX PADI.
+  0days, 00:00:32, PPPOE: TX PADT[session=c07b].
+  0days, 00:00:42, DHCPS: Lease host name not found.
+  0days, 00:00:42, DHCPS: Send OFFER with ip 192.168.0.101.
+  0days, 00:00:42, DHCPS: Lease host name not found.
+  0days, 00:00:42, DHCPS: Send ACK to 192.168.0.101.
+  0days, 00:00:53, PPPOE: Standard authentication.
+  0days, 00:00:53, PPPOE: TX PADT[session=c07b].
+  0days, 00:00:53, PPPOE: try special dial type 0.
+  0days, 00:00:53, PPPOE: TX PADI.
+  0days, 00:00:58, PPPOE: TX PADI.
+  0days, 00:01:03, PPPOE: TX PADI.
+  0days, 00:01:08, PPPOE: TX PADI.
+  0days, 00:01:09, DIAGNOSE: DNS query finish, server index=0.
+  0days, 00:01:09, DIAGNOSE: Ping progress is now running with id=1024.
+  0days, 00:01:09, DIAGNOSE: Stop diagnose ping progress .......
+  0days, 00:01:09, DIAGNOSE: Free context force.
+  0days, 00:01:14, PPPOE: TX PADT[session=c07b].
+  0days, 00:01:35, PPPOE: Standard authentication.
+  0days, 00:01:35, PPPOE: TX PADT[session=c07b].
+  0days, 00:01:35, PPPOE: try special dial type 0.
+  0days, 00:01:35, PPPOE: TX PADI.
+  0days, 00:01:38, DIAGNOSE: Ping progress is now running with id=1025.
+  0days, 00:01:40, PPPOE: TX PADI.
+  0days, 00:01:41, DIAGNOSE: Auto stopped, id=1025, sequence=3.
+  0days, 00:01:42, DIAGNOSE: Stop diagnose ping progress .......
+  0days, 00:01:42, DIAGNOSE: Free context force.
+  0days, 00:01:45, PPPOE: TX PADI.
+  0days, 00:01:50, PPPOE: TX PADI.
+  0days, 00:01:56, PPPOE: TX PADT[session=c07b].
+  0days, 00:02:17, PPPOE: Standard authentication.
+  0days, 00:02:17, PPPOE: TX PADT[session=c07b].
+  0days, 00:02:17, PPPOE: try special dial type 0.
+  0days, 00:02:17, PPPOE: TX PADI.
+  0days, 00:02:22, PPPOE: TX PADI.
+  0days, 00:02:27, PPPOE: TX PADI.
+  0days, 00:02:32, PPPOE: TX PADI.
+  0days, 00:02:38, PPPOE: TX PADT[session=c07b].
+  0days, 00:02:59, PPPOE: Standard authentication.
+  0days, 00:02:59, PPPOE: TX PADT[session=c07b].
+  0days, 00:02:59, PPPOE: try special dial type 0.
+  0days, 00:02:59, PPPOE: TX PADI.
+  0days, 00:03:04, PPPOE: TX PADI.
+  0days, 00:03:09, PPPOE: TX PADI.
+  0days, 00:03:14, PPPOE: TX PADI.
+  0days, 00:03:20, PPPOE: TX PADT[session=c07b].
+  0days, 00:03:41, PPPOE: Standard authentication.
+  0days, 00:03:41, PPPOE: TX PADT[session=c07b].
+  0days, 00:03:41, PPPOE: try special dial type 0.
+  0days, 00:03:41, PPPOE: TX PADI.
+  0days, 00:03:46, PPPOE: TX PADI.
+  0days, 00:03:48, WAN: Wan ethernet port plug off.
+  0days, 00:03:48, PPPOE: TX PADT[session=c07b].
+  0days, 00:12:56, WAN: Wan ethernet port plug on.
+  0days, 00:12:57, PPPOE: Standard authentication.
+  0days, 00:12:57, PPPOE: TX PADT[session=c07b].
+  0days, 00:12:57, PPPOE: try special dial type 0.
+  0days, 00:12:57, PPPOE: TX PADI.
+  0days, 00:13:02, PPPOE: TX PADI.
+  0days, 00:13:07, PPPOE: TX PADI.
+  0days, 00:13:12, PPPOE: TX PADI.
+  0days, 00:13:18, PPPOE: TX PADT[session=c07b].
+  0days, 00:13:39, PPPOE: Standard authentication.
+  0days, 00:13:39, PPPOE: TX PADT[session=c07b].
+  0days, 00:13:39, PPPOE: try special dial type 0.
+  0days, 00:13:39, PPPOE: TX PADI.
+  0days, 00:13:44, PPPOE: TX PADI.
+  0days, 00:13:49, PPPOE: TX PADI.
+  0days, 00:13:54, PPPOE: TX PADI.
+  0days, 00:14:00, PPPOE: TX PADT[session=c07b].
+  0days, 00:14:21, PPPOE: Standard authentication.
+  0days, 00:14:21, PPPOE: TX PADT[session=c07b].
+  0days, 00:14:21, PPPOE: try special dial type 0.
+  0days, 00:14:21, PPPOE: TX PADI.
+  0days, 00:14:26, PPPOE: TX PADI.
+  0days, 00:14:31, PPPOE: TX PADI.
+

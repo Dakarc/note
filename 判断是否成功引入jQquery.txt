@@ -1,0 +1,7 @@
+主要使用typeof检验
+
+1 <script language="javascript">
+2 if(typeof jQuery == 'undefined'){
+3     window.alert("没有jquery");
+4 }
+5 </script>

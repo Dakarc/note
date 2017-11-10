@@ -1,0 +1,3 @@
+//·âº¯Êý
+function create(){
+	return $('<div class="items" style="background:rgb('+rand(0,255)+','+rand(0,255)+','+rand(0,255)+')"></div>');

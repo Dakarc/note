@@ -1,0 +1,7 @@
+{
+	"cmd": ["node","$file"],
+	"selector": "source.js"
+}
+
+--------------------------------------
+ÃüÃûÎª node.sublime_build

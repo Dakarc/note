@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery-1.8.3.min.js'></script>
+</head>
+<body>
+	<form action="1.php" method='post'>
+	用户名: <input type="text" name='user' value='123'><br>
+	性别 : <input type="radio" name='sex' value='1'> 男
+		   <input type="radio" name='sex' value='0'> 女<br>
+	爱好 : <input type="checkbox" name='hobby[]' value='吃辣条'>吃辣条
+		   <input type="checkbox" name='hobby[]' value='喝印度神油'>喝印度神油
+		   <input type="checkbox" name='hobby[]' value='吃芥末'>吃芥末
+		   <input type="checkbox" name='hobby[]' value='螃蟹'>螃蟹  <br>
+	下拉  : <select name="" id="xiala">
+				<option value="0">毛里求斯</option>
+				<option value="1" selected>塞舌尔</option>
+				<option value="2">不知道</option>
+				<option value="3">哈尔滨</option>
+			</select>
+	自我介绍  <textarea name="" id="content" cols="30" rows="10"></textarea>
+	
+	<input type="checkbox" name='bawang'>请同意以下霸王条款
+	<button>提交</button>
+	</form>
+</body>
+</html>
+<script>
+//文本框  value 
+var res = $('[name=user]').val();
+$('[name=user]').val('文字');
+//单选按钮  备选总的那一个值 
+var res = $('[type=radio]:checked').val();
+//复选框被选中的哪几个值
+var res = [];
+$('[type=checkbox]:checked').each(function(){
+	res.push($(this).val());
+})
+//下拉框被选中的那个值
+var res = $('select').val();
+//内容
+var res = $('option:selected').html();
+//文本域 
+var res = $('textarea').val();
+//按钮失效
+$('button').attr('disabled',true);
+
+//js  和  jq 的对象 可以互相转换的 
+//jq -> js    [0]    
+$('[name=user]')[0].value = 666;
+//js -> jq    $(); 
+
+var user = document.getElementsByName('user')[0];
+$(user).val('7777');
+
+//$(this)  $(window)  $(document) 
+
+
+$('[name=bawang]').click(function(){
+	if(this.checked){
+		$('button')[0].disabled = false;
+	}else{
+		$('button')[0].disabled = true;
+	}
+})
+
+//jq 很难获得某一个 单选 复选 当前选中的状态  
+
+//alert(res);
+console.log(res);
+</script>

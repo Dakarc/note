@@ -1,0 +1,16 @@
+setCookie("user","laowang",time()+60*60);
+删除Cookie两种
+setCookie('name');	//设置k为空
+减少时间;
+
+Session
+
+浏览器得到PHPSESID;
+session_start();	//每次使用先start
+新增
+$_SESSION['favcolor'] = 'green';
+读取
+echo $_SESSION['fav'];
+删除
+unset($_SESSION['name']);	//不能直接unset($_SESSION);无法再使用ses
+$_SEESION=array();	//

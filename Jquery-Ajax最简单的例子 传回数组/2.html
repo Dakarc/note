@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<script src='jquery-1.8.3.min.js'></script>
+</head>
+<body>
+	<button>GET发送Ajax</button>
+</body>
+</html>
+<script>
+	$('button:eq(0)').click(function(){
+		var obj = {'name':'xy','age':'123'};
+		$.get('2.php',{},function(data){
+			console.log(data);
+		})
+	})
+</script>

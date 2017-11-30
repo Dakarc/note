@@ -7,4 +7,5 @@
 	<img src="images/15.jpg" width='120' alt="">
 	<img src="images/16.jpg" width='120' alt="">
 	<img src="images/17.jpg" width='120' alt="">
+	<img src="images/18.jpg" width='120' alt="">
 </div>

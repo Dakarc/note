@@ -1,0 +1,19 @@
+﻿Time: 2017-11-30 16:45:04IP: 140.207.54.80Msg:
+postStr
+
+<xml>
+<ToUserName><![CDATA[gh_d553c4e3aae3]]></ToUserName>
+
+<FromUserName><![CDATA[o-jqdv6ob0g6FFHo0-23rRNHUKFM]]></FromUserName>
+
+<CreateTime>1512031504</CreateTime>
+
+<MsgType><![CDATA[text]]></MsgType>
+
+<Content><![CDATA[天气]]></Content>
+
+<MsgId>6494125860646752138</MsgId>
+
+</xml>
+
+Time: 2017-11-30 16:45:04IP: 140.207.54.80Msg:{"signature":"025ad47c90f269088e4d0cf0bdc31ba47eac238e","timestamp":"1512031504","nonce":"420676263","openid":"o-jqdv6ob0g6FFHo0-23rRNHUKFM"}

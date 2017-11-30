@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点名器</title>
+	<style>
+	#box{width:500px; height:300px; margin:0 auto; background:pink;line-height:300px; font-size:60px;text-align:center;}
+	#box2{width:500px; height:200px;margin:0 auto; font-size:60px;text-align:center;}
+	button{width:150px; height:50px;}
+
+	</style>
+</head>
+<body>
+	<div id='box'>哆嗦</div>
+	<div id='box2' >
+		<button>开始</button>
+		<button>停止</button>
+	</div>
+</body>
+</html>
+<script>
+var arr = ['田博','盛博','福博','生俊','谢晋','丁丰','王叙','谢晋','田博','田博','文一','子寒','生俊','崔帅','德瑞','大帝','宏宇','田博重来','作鑫','郭昱'];
+//arr 5 
+var box = document.getElementById('box');
+var button = document.getElementsByTagName('button');
+var t = null; 
+/* 
+var r = rand(0,arr.length-1);
+box.innerHTML = arr[r];*/
+button[0].onclick = function(){
+	if(t!=null) return;
+	t = setInterval(function(){
+		var r = rand(0,arr.length-1);
+		box.innerHTML = arr[r];
+	},10)
+
+}
+
+button[1].onclick = function(){
+	clearInterval(t);
+	t = null;
+}
+
+
+function rand(m,n){
+	return Math.ceil(Math.random()*(n-m+1))+(m-1);
+}
+
+</script>

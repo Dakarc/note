@@ -1,0 +1,56 @@
+①.XML (Extensible Markup Language )可扩展标记语言  HTML5   XHTML 
+	出现 为了 传递数据 
+	②.
+	<?xml version='1.0' encoding='utf-8'?>
+	<movies>
+		<movie>
+			<name>辩护人</name>
+			<country>韩国</country>
+		</movie>
+		<movie name="abc">
+			<name>V字仇杀队</name>
+			<country>美国</country>
+		</movie>
+		<movie>
+			<name>盗梦空间</name>
+			<country>中国</country>
+		</movie>
+	</movies>
+
+	同html
+	③.整个文档是一个文档节点
+	  每个XML标签是一个元素节点
+	  包含在XML元素中的文本是文本节点
+	  每一个XML属性是一个属性节点
+	  注释属于注释节点
+
+	④. 写接口
+	  XML的主要作用是为了信息传递
+	  XML文档必须有根元素
+	  所有XML元素都必须有关闭标签  双标签
+	  XML标签对大小写敏感
+	  XML必须正确的嵌套
+	  XML的属性值必须加引号
+	⑤.js解析xml
+	(1).xml文档
+		获取xml文档
+			IE
+			var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+			xmlDoc.async=false;
+			xmlDoc.load("1.xml");
+			非IE
+			var xmlDoc=document.implementation.createDocument("","",null);
+			xmlDoc.async=false;
+			xmlDoc.load("1.xml");
+
+		获取标签
+			xmlDoc.getElementsByTagName
+	(2).xml字符串
+		if(window.DOMParser){   //非IE
+			var parser=new DOMParser();
+	    	xmlDoc = parser.parseFromString(str,"text/xml");
+		}else{   //IE
+			xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+			xmlDoc.async=false;
+			xmlDoc.loadXML(txt);
+		}

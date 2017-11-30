@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js的表单验证</title>
+	<script src='jquery-1.8.3.min.js'></script>
+	<style>
+	input{
+	    display: block;
+	    position: relative;
+	    float: left;
+	    height: 16px;
+	    width: 328px;
+	    padding: 11px 10px;
+	    margin-right: 10px;
+	    border: 1px solid #ddd;
+	    font-size: 14px;
+	    color: #666;
+	    transition: .3s;
+	}
+	</style>
+</head>
+<body>
+	<form action="meiyong.php" method='post'>
+		<table width='800'>
+			<tr>
+				<td width='100px'>用户名</td>
+				<td><input type="text" name='user' placeholder='请好好输入用户名' msg='请好好输入用户名'><span></span></td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td><input p='/^\w{6,18}$/' type="password" msg='请好好输入密码' name='pass'><span></span></td>
+			</tr>
+			<tr>
+				<td>确认密码</td>
+				<td><input type="password" msg='请好好输入确认密码' name='repass'><span></span></td>
+			</tr>
+			<tr>
+				<td>手机号</td>
+				<td><input p='/^1[35678]\d{9}$/' type="text" msg='请好好输入tele' name='tele'><span></span></td>
+			</tr>
+			<tr>
+				<td>邮箱</td>
+				<td><input p='/\w+@\w+.\w+/' type="text" msg='请好好输入emali' name='email'><span></span></td>
+				<input type="hidden" value='1' name='uid'>
+			</tr>
+			<tr>
+				<td colspan='2'><button>提交</button></td>
+				
+			</tr>
+		</table>
+	
+
+
+	</form>
+</body>
+</html>
+<script>
+var uflag = false;
+var oflag = false;
+var rflag = false;
+$('input').focus(function(){
+	$(this).css('borderColor','#4F92E7');
+	var msg = $(this).attr('msg');
+	$(this).next().html(msg);
+	$(this).next().css('color','#aaa');
+})
+
+$('[name=user]').blur(function(){
+	//1.符不符合正则   2. 是否重复 
+	var p = /^\w{6,18}$/;
+	var v = $(this).val();
+	var t = $(this);
+	//判断正则
+	if(p.test(v)){
+		//通过正则 判断一下是否重复 
+		$.post('check.php',{'user':v},function(data){
+			if(data==2){
+				//正则ok  不重复
+				t.next().html('<img src="images/dui.png">完美~');
+				t.next().css('color','green');	
+				t.css('borderColor','green');
+				uflag = true;
+			}else{
+				//重复
+				t.next().html('<img src="images/cuo.png">重复了');
+				t.next().css('color','red');	
+				t.css('borderColor','red');
+				uflag = false;
+			}
+		})
+		
+	}else{
+		//没通过正则
+		$(this).next().html('<img src="images/cuo.png">用户名不对');
+		$(this).next().css('color','red');	
+				uflag = false;
+		$(this).css('borderColor','red');
+	}
+
+})
+//密码  邮箱 手机   输入的内容   正则  判断他们两个是否匹配 
+//匹配 返回ok  不匹配 返回错误信息
+$('[name=pass],[name=email],[name=tele]').blur(function(){
+	var v = $(this).val();
+	//var p = $(this).attr('p');  //p 根本不是个正则对象  
+	eval('var p='+$(this).attr('p'));
+
+	if(p.test(v)){
+		//成功
+		//正则ok  不重复
+		$(this).next().html('<img src="images/dui.png">完美~');
+		$(this).next().css('color','green');	
+		$(this).css('borderColor','green');
+		oflag = true;
+	}else{
+		//失败
+		//没通过正则
+		$(this).next().html('<img src="images/cuo.png">不对');
+		$(this).next().css('color','red');	
+		$(this).css('borderColor','red');
+		oflag = false;
+	}
+
+})
+
+$('[name=repass]').blur(function(){
+	//只要判断是否相等
+	var pass = $('[name=pass]').val();
+	var repass = $(this).val();
+	if(pass==repass){
+		//成功
+		//正则ok  不重复
+		$(this).next().html('<img src="images/dui.png">完美~');
+		$(this).next().css('color','green');	
+		$(this).css('borderColor','green');
+		rflag = true;
+	}else{
+		//失败
+		//没通过正则
+		$(this).next().html('<img src="images/cuo.png">不对');
+		$(this).next().css('color','red');	
+		$(this).css('borderColor','red');
+		rflag = false;
+	}
+})
+
+$('form').submit(function(){
+	//trigger 
+	$('input').trigger('blur');
+	//return false;
+	if(uflag && oflag && rflag){
+		return true;
+	}else{
+		return false;
+	}
+
+})
+
+
+
+</script>

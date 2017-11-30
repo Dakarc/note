@@ -1,0 +1,42 @@
+-*<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onchange城市的二级联动</title>
+</head>
+<body>
+	<select name="" id="sheng"></select>
+	<select name="" id="city"></select>
+</body>
+</html>  
+<script>
+var p = ['辽宁省','黑龙江省','吉林省','东北三省'];
+
+var c = [
+			['沈阳','铁岭','大连','哈尔滨'],
+			['齐齐哈尔','墨盒','乌鲁木齐','佳木斯'],
+			['长春','四平','吉林','公主岭'],
+			['日本','韩国','朝鲜','菲律宾']
+		];
+
+var sheng = document.getElementById('sheng');
+var city = document.getElementById('city');
+var str = '<option>请选择</option>';
+for(var i=0;i<p.length;i++){
+	str += '<option value="'+i+'">'+p[i]+'</option>';
+}
+sheng.innerHTML = str;
+sheng.onchange = function(){
+	var id = sheng.value;
+	//得到 id 就是点击的索引值   c[id] 
+	var str = '';
+	for(var i=0;i<c[id].length;i++){
+		str += '<option value="'+i+'">'+c[id][i]+'</option>';
+	}
+	city.innerHTML = str;
+
+}
+
+
+
+</script>

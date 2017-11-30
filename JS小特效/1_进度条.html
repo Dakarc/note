@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Demo</title>
+        <style type="text/css">
+            #die{width:600px;height:30px;border:1px solid lightgray;}
+            #son{height:30px;background:lightgreen;}
+        </style>
+    </head>
+    <body>
+            <div id="die">
+                <div id="son" >
+                        
+                </div>    
+            </div>
+
+    </body>
+    <script>
+        //找对象
+        var son = document.getElementById('son');
+        var num = 1;
+       timmer = setInterval(function(){
+            son.style.width=num +'%';
+           
+            if(num == 100){
+                clearInterval(timmer);
+                alert('念祖直播吞黄鳝');
+            }
+            num++;
+        },50);
+    </script>
+</html>

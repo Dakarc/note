@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		 #box{width:100px;height:100px;background:rgb(66,248,108);position:absolute;border-radius:50px;}
+		 #line{width:100%;height:1px;background:red;position:absolute;top:600px;}
+	</style>
+</head>
+<body>
+	<button onclick="start()">开始</button>
+	<div id="box" style="top:20px;"></div>
+	<div id="line"></div>
+	
+
+</body>
+	<script>
+	//num = Math.ceil(Math.random() * 255);
+	//console.log(num);
+	var box = document.getElementById('box');
+
+	var speed = 0;
+	function start(){
+		setInterval(function(){
+			speed +=5;
+			var des = parseInt(box.style.top) + speed;
+			if(des >= 500){
+				speed *= -1;
+				des = 500;
+
+			}
+			box.style.top = des +'px';
+		
+
+		},50);
+
+	}
+
+	</script>
+</html>
+

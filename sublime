@@ -1,0 +1,6 @@
+[
+{ "keys": ["alt+shift+space"], "command": "move", "args": {"by": "characters", "forward": true} },
+{ "keys": ["ctrl+shift+space"], "command": "move", "args": {"by": "characters", "forward": false} },
+{ "keys": ["alt+enter"], "command": "move", "args": {"by": "lines", "forward": true} },
+{ "keys": ["shift+alt+enter"], "command": "move", "args": {"by": "lines", "forward": false} }
+]

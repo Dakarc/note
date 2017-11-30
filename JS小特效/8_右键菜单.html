@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>右键菜单</title>
+	<style>
+	*{padding:0px;margin:0px;}
+		div{width:100px; height:100px;background:pink; margin-top:20px;}
+		ul{list-style:none; border:1px solid #abcdef; width:180px; position:absolute;left:0px; top:0px;display:none;}
+		ul li{padding:10px 0px; border-bottom:1px solid #abcdef; text-align:center; color:#666;background:#fff;}
+		.bianbian{background:pink; font-size:24px; color:red; cursor:pointer;}
+	</style>
+</head>
+<body>
+	<ul id='show'>
+		<li id='fu'>你不能复制</li>
+		<li>你不能粘贴</li>
+		<li>你不能刷新</li>
+		<li>你不能点击</li>
+		<li><a href='http://www.7k7k.com'>滚犊子</a></li>
+	</ul>
+
+	<div id='box'></div>
+</body>
+</html>
+<script>
+var show = document.getElementById('show');
+
+window.oncontextmenu = function(e){
+	//e.clientX  e.clientY  鼠标位置
+	var x = e.clientX;
+	var y = e.clientY;
+	show.style.display = 'block';
+	show.style.left = x+'px';
+	show.style.top = y+'px';
+	return false;
+}
+
+//左键单机一下 变没
+window.onclick = function(){
+	show.style.display = 'none';
+}
+
+// 鼠标往上一放 有个小特效
+var lis = document.getElementsByTagName('li');
+for(var i=0;i<lis.length;i++){
+	//当鼠标悬浮
+	lis[i].onmouseover = function(){
+		/*this.style.background = 'pink';
+		this.style.fontSize = '24px';
+		this.style.color = 'red';
+		this.style.cursor = 'pointer';*/
+		this.setAttribute('class','bianbian');
+	}
+	//当鼠标离开
+	lis[i].onmouseout = function(){
+	/*	this.style.background = '#fff';
+		this.style.fontSize = '16px';
+		this.style.color = '#666';
+		this.style.cursor = 'default';*/
+		this.removeAttribute('class');
+	}
+}
+var fu = document.getElementById('fu');
+var box = document.getElementById('box');
+fu.onclick = function(){
+	box.innerHTML = '不要复制!';
+}
+
+</script>

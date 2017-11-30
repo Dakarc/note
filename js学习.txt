@@ -1,0 +1,3 @@
+1.找对象->改属性
+2.对象.属性类型.属性名 = 值;	例如:box.style.top = des +'px';
+3.在函数里在想用这个对象时,要用"this",	lis[i].onmouseout = function(){this.style.background = '#fff';}

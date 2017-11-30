@@ -1,0 +1,1 @@
+在sublime text3首选项菜单（preferences）下找到“按键-用户”（key bindings user）选项（新版也可能是“快捷键设置”选项），在用户（user）配置文件里添加如下一行并保存：{ "keys": ["ctrl+shift+c"], "command": "open_in_browser" }
